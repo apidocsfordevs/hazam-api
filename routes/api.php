@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/me', function (Request $request) {
 });
 
 Route::post('/users', [UserController::class, 'create']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
