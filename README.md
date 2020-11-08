@@ -13,3 +13,4 @@ There's no documentation for the Hazam API. That's up to you.🙃
 
 A few pointers for making sense of the codebase (especially if you're not familiar with Laravel):
 - The `routes/api.php` contains the endpoints.
+- Rate limiting (via the `throttle` middleware) is defined in the RouteServiceProvider class.
