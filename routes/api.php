@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArtisteController;
+use App\Http\Controllers\MatchController;
+use App\Http\Controllers\TrackController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +24,13 @@ Route::middleware('auth:sanctum')->get('/me', function (Request $request) {
 
 Route::post('/users', [UserController::class, 'create']);
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
-//Route::post('/audio/match', [UserController::class, 'authenticate'])->middleware('throttle:api');
+
+Route::middleware('throttle:api')->group(function () {
+    Route::post('/match/upload', [MatchController::class, 'matchFromAudioUpload']);
+
+    Route::get('/tracks/top', [TrackController::class, 'getTopTracks']);
+    Route::get('/tracks/{id}', [TrackController::class, 'getTrack']);
+
+    Route::get('/artistes/top', [ArtisteController::class, 'getTopArtistes']);
+    Route::get('/artistes/{id}', [ArtisteController::class, 'getArtiste']);
+});

@@ -4,6 +4,8 @@ Dummy API used as an exercise for the [API Documentation for Developers](https:/
 The API is meant to be Shazam-like.
 
 ## Setup
+Requirements: PHP 7.3+
+
 - Copy `.env.example` to a `.env` file and run `php artisan key:generate`.
 - Create a `database.sqlite` file in the database/ folder and run `php artisan migrate`.
 - Run `php artisan serve` to start the app on http://localhost:8000
